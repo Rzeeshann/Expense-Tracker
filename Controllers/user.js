@@ -5,7 +5,6 @@ const token = require('jsonwebtoken')
 
 exports.signup = (req,res,next)=>{
     const {name,email,password} = req.body
-    console.log(req.body);
     if(name == undefined || name.length === 0 
         || email == undefined || email.length === 0
         || password == undefined || password.length === 0)
