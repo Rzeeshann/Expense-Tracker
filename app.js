@@ -16,7 +16,16 @@ app.use(bodyParser.json())
 
 const userRoute = require('./Routes/user')
 
+const expenseRoute = require('./Routes/expense')
+
+const userTable = require('./Models/user')
+
+const expenseTable = require('./Models/expense')
+
 app.use('/users',userRoute)
+
+app.use('/expense',expenseRoute)
+
 
 const User = require("./Models/user")
 
