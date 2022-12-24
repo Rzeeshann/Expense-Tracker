@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 const userRoute = require('./Routes/user')
 
-app.use('/user',userRoute)
+app.use('/users',userRoute)
 
 const User = require("./Models/user")
 

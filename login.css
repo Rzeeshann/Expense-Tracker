@@ -1,0 +1,13 @@
+header {
+    text-align: center;
+    margin:10;
+    padding:0px;
+    padding-bottom:0px;
+    background:rgb(232, 99, 99);
+    color:rgb(251, 251, 251);
+}
+
+header h1{
+    padding:40px;
+    font-size:100px;
+}
