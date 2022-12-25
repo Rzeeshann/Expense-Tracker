@@ -1,6 +1,8 @@
 const User = require('../Models/user')
 const bcrypt = require('bcrypt')
 
+const jwt = require("jsonwebtoken");
+
 const token = require('jsonwebtoken')
 
 exports.signup = (req,res,next)=>{
@@ -23,7 +25,7 @@ User.findAll()
        
     
 })
-// .catch(err=>res.status(500).json({err:'Something Went wrong'}))
+
 
 }
 
@@ -48,13 +50,15 @@ User.findAll({where:{email}})
             }
             if(result === true){
                 res.status(200).json({message:'Successfully logged in', success:true, token:generateToken(user[0].id)})
-            } else {
+            } 
+            
+            else {
                 res.status(400).json({message: 'Password did not match', success:false})
             }
         })
        
     } else {
-        res.status(404).json({message:'User does not exist'})
+        res.status(403).json({message:'User does not exist'})
     }
 })
 

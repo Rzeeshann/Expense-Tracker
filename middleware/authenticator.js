@@ -1,15 +1,16 @@
-const jwt = require('jsonwebtoken')
+
 const User = require('../Models/user')
+
+const jwt = require('jsonwebtoken')
 
 exports.authenticator = (req,res,next)=> {
     try{
 const token = req.header('Authorization')
 const user = jwt.verify(token,'secretkey')
-console.log('hey hey hey hey hey ', user.userId)
+console.log('REFERENCE', user.userId)
 User.findByPk(user.userId)
 .then(user=>{
     req.user = user
-    // console.log(user)
     next()
 })
     }
@@ -17,4 +18,6 @@ User.findByPk(user.userId)
 console.log(err)
 return res.json({err,success:false})
     }
+ 
 }
+

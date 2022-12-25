@@ -3,6 +3,8 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
+const jwt = require('jsonwebtoken');
+
 const cors = require('cors');
 
 const app = express()
@@ -18,21 +20,21 @@ const userRoute = require('./Routes/user')
 
 const expenseRoute = require('./Routes/expense')
 
-const userTable = require('./Models/user')
-
-const expenseTable = require('./Models/expense')
 
 app.use('/users',userRoute)
 
 app.use('/expense',expenseRoute)
 
 
-const User = require("./Models/user")
+const User = require('./Models/user')
 
+const Expense = require('./Models/expense')
 
+User.hasMany(Expense)
+Expense.belongsTo(User)
 
 sequelize.sync()
-.then(res => {
+.then(user => {
     app.listen(5000)
 })
 .catch(err => {
