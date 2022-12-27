@@ -42,6 +42,8 @@ const Expense = require('./Models/expense')
 
 const Order = require('./Models/order')
 
+const Premium = require('./Models/premiummembership')
+
 User.hasMany(Expense)
 Expense.belongsTo(User)
 
