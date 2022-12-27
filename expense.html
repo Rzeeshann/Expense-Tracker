@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./expense.css">
     <title>My Expense Tracker</title>
+    
 </head>
    
 <body style="background-color:rgb(212, 244, 174);"></body>
 
 
-    <header>    
+    <header class ="header">    
         <h1>EXPENSE TRACKER</h1>
     </header>
     <form action style="border:5px solid rgb(10, 2, 2)">
@@ -35,13 +36,16 @@
 
     <input type="button" value="Add Expense" onclick="addnewExpense(event)">
     
-
+    <h3 id="seeexp">Your Expenses Here...</h3>
     <ul id="ul">
         
     </ul>
-
+    <button id="premiumbtn" onclick="gopremium(event)">Go Premium</button>
+    <div id = "pop"></div>
    </div>
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
     <script src="./expense.js"></script> 
+   
 </body>
 </html>

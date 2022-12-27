@@ -20,18 +20,33 @@ const userRoute = require('./Routes/user')
 
 const expenseRoute = require('./Routes/expense')
 
+const purchaseRoute = require('./routes/purchase')
+
+const leaderboardRoute = require('./Routes/leader')
+
+const dotenv = require('dotenv')
+dotenv.config();
 
 app.use('/users',userRoute)
 
 app.use('/expense',expenseRoute)
+
+app.use(leaderboardRoute)
+
+app.use(purchaseRoute)
 
 
 const User = require('./Models/user')
 
 const Expense = require('./Models/expense')
 
+const Order = require('./Models/order')
+
 User.hasMany(Expense)
 Expense.belongsTo(User)
+
+User.hasMany(Order)
+Order.belongsTo(User)
 
 sequelize.sync()
 .then(user => {
